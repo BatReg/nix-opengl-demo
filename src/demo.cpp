@@ -1,6 +1,8 @@
 #include <glad\glad.h>
 #include <GLFW\glfw3.h>
 
+#include "time.h"
+
 #include <iostream>
 
 void init()
@@ -8,9 +10,9 @@ void init()
     std::cout << "-------- INIT --------" << '\n';
 }
 
-void tick(float deltaTime)
+void tick()
 {
-    std::cout << "-------- TICK: " << deltaTime << " --------" << '\n';
+    std::cout << "-------- TICK: " << utils::Time::getDeltaTime() << " --------" << '\n';
 }
 
 void terminate()

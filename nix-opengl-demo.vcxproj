@@ -138,9 +138,11 @@
     <ClCompile Include="src\demo.cpp" />
     <ClCompile Include="src\demo_main.cpp" />
     <ClCompile Include="src\third_party\glad.c" />
+    <ClCompile Include="src\time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\settings.h" />
+    <ClInclude Include="src\time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

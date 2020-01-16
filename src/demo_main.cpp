@@ -2,11 +2,12 @@
 #include <GLFW\glfw3.h>
 
 #include "settings.h"
+#include "time.h";
 
 #include <iostream>
 
 void init();
-void tick(float deltaTime);
+void tick();
 void terminate();
 void processKeyboardInput(GLFWwindow* window);
 
@@ -47,11 +48,13 @@ int main()
 
     init();
 
-    double lastTime = glfwGetTime();
+    
+    utils::Time time(glfwGetTime());
     while (!glfwWindowShouldClose(window)) 
     {
-        double currentTime = glfwGetTime();
-        float deltaTime = static_cast<float>(currentTime - lastTime);
+        // Update delta time
+        // -----------------
+        time.UpdateTime(glfwGetTime());
 
         // Get input
         // ---------
@@ -61,14 +64,12 @@ int main()
         // ------
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        tick(deltaTime);
+        tick();
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
-
-        lastTime = currentTime;
     }
     
     terminate();

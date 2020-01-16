@@ -27,9 +27,15 @@
     <ClCompile Include="src\third_party\glad.c">
       <Filter>Source Files\Third Party</Filter>
     </ClCompile>
+    <ClCompile Include="src\time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
