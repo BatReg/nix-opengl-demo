@@ -3,14 +3,14 @@
 
 #include <iostream>
 
-void init() 
+void init()
 {
     std::cout << "-------- INIT --------" << '\n';
 }
 
-void tick(float deltaTime) 
+void tick(float deltaTime)
 {
-    std::cout << "-------- TICK " << deltaTime << " --------" << '\n';
+    std::cout << "-------- TICK: " << deltaTime << " --------" << '\n';
 }
 
 void terminate()
@@ -18,14 +18,9 @@ void terminate()
     std::cout << "-------- TERMINATE --------" << '\n';
 };
 
-void framebufferSizeCallback(GLFWwindow* window, int width, int height) 
+void processKeyboardInput(GLFWwindow* window)
 {
-
-};
-
-void processKeyboardInput(GLFWwindow* window) 
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) 
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
         glfwSetWindowShouldClose(window, true);
     }
