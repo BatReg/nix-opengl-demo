@@ -6,7 +6,7 @@
 #include <iostream>
 
 void init();
-void tick(float elapsed);
+void tick(float deltaTime);
 void terminate();
 void processKeyboardInput(GLFWwindow* window);
 
