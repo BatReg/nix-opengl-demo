@@ -15,9 +15,9 @@ namespace utils
 
         void UpdateTime(double currentTime);
 
-        static double getLastTime()     {   return Time::s_lastTime;    }
-        static double getCurrentTime()  {   return Time::s_currentTime; }
-        static float getDeltaTime()     {   return Time::s_deltaTime;   }
+        static double getLastTime()     {   return s_lastTime;    }
+        static double getCurrentTime()  {   return s_currentTime; }
+        static float getDeltaTime()     {   return s_deltaTime;   }
     };
 }
 
