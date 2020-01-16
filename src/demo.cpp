@@ -1,7 +1,7 @@
-#include <glad\glad.h>
-#include <GLFW\glfw3.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
-#include "time.h"
+#include "game_time.h"
 
 #include <iostream>
 
@@ -15,9 +15,9 @@ void tick()
     std::cout << "-------- TICK: " << utils::Time::getDeltaTime() << " --------" << '\n';
 }
 
-void terminate()
+void dispose()
 {
-    std::cout << "-------- TERMINATE --------" << '\n';
+    std::cout << "-------- DISPOSE --------" << '\n';
 };
 
 void processKeyboardInput(GLFWwindow* window)

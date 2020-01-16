@@ -1,4 +1,4 @@
-#include "time.h"
+#include "game_time.h"
 
 namespace utils 
 {
@@ -8,10 +8,10 @@ namespace utils
 
     Time::Time(double currentTime)
     {        
-        UpdateTime(currentTime);
+        updateTime(currentTime);
     }
 
-    void Time::UpdateTime(double currentTime) 
+    void Time::updateTime(double currentTime) 
     {
         s_lastTime = s_currentTime;
         s_currentTime = currentTime;

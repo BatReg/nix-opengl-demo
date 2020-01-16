@@ -1,5 +1,5 @@
-#ifndef TIME
-#define TIME
+#ifndef GAME_TIME
+#define GAME_TIME
 
 namespace utils 
 {
@@ -13,7 +13,7 @@ namespace utils
     public:
         Time(double currentTime);
 
-        void UpdateTime(double currentTime);
+        void updateTime(double currentTime);
 
         static double getLastTime()     {   return s_lastTime;    }
         static double getCurrentTime()  {   return s_currentTime; }
@@ -21,4 +21,4 @@ namespace utils
     };
 }
 
-#endif // !TIME
+#endif // !GAME_TIME

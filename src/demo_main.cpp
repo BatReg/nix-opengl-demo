@@ -1,14 +1,14 @@
-#include <glad\glad.h>
-#include <GLFW\glfw3.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "settings.h"
-#include "time.h";
+#include "game_time.h"
 
 #include <iostream>
 
 void init();
 void tick();
-void terminate();
+void dispose();
 void processKeyboardInput(GLFWwindow* window);
 
 static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
@@ -24,7 +24,7 @@ int main()
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(Settings::SCREEN_WIDTH, Settings::SCRREN_HEIGHT, "N-iX OpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(settings::SCREEN_WIDTH, settings::SCREEN_HEIGHT, "N-iX OpenGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -54,7 +54,7 @@ int main()
     {
         // Update delta time
         // -----------------
-        time.UpdateTime(glfwGetTime());
+        time.updateTime(glfwGetTime());
 
         // Get input
         // ---------
@@ -72,7 +72,7 @@ int main()
         glfwPollEvents();
     }
     
-    terminate();
+    dispose();
     glfwTerminate();
 
     return 0;
