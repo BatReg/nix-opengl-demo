@@ -6,7 +6,7 @@
 #include <iostream>
 
 void init();
-void tick();
+void tick(float elapsed);
 void terminate();
 void processKeyboardInput(GLFWwindow* window);
 
@@ -47,20 +47,26 @@ int main()
 
     init();
 
+    double lastTime = glfwGetTime();
     while (!glfwWindowShouldClose(window)) 
     {
+        double currentTime = glfwGetTime();
+        float deltaTime = static_cast<float>(currentTime - lastTime);
+
         // Get input
         // ---------
         processKeyboardInput(window);
 
         // Update
         // ------
-        tick();
+        tick(deltaTime);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
+
+        lastTime = currentTime;
     }
     
     terminate();

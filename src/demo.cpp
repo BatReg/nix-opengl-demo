@@ -8,9 +8,9 @@ void init()
     std::cout << "-------- INIT --------" << '\n';
 }
 
-void tick() 
+void tick(float deltaTime) 
 {
-    std::cout << "-------- TICK --------" << '\n';
+    std::cout << "-------- TICK " << deltaTime << " --------" << '\n';
 }
 
 void terminate()
