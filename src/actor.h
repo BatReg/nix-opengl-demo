@@ -14,6 +14,8 @@ namespace core
         Actor();
         Actor(float vertices[], unsigned int verticesSize, unsigned int triangles);
 
+        ~Actor();
+
         void draw();
         void dispose();
     };

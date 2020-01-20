@@ -34,6 +34,11 @@ namespace core
         glBindBuffer(GL_ARRAY_BUFFER, DEFAULT_BUFFER_PTR);
     }
 
+    Actor::~Actor()
+    {
+        dispose();
+    }
+
     void Actor::draw()
     {
         glBindVertexArray(m_vao);
