@@ -3,7 +3,7 @@
 
 namespace utils 
 {
-    class Time 
+    class GameTime 
     {
     private:
         static double   s_lastTime;
@@ -11,7 +11,7 @@ namespace utils
         static float    s_deltaTime;
 
     public:
-        Time(double currentTime);
+        GameTime(double currentTime);
 
         void updateTime(double currentTime);
 

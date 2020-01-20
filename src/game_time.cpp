@@ -2,16 +2,16 @@
 
 namespace utils 
 {
-    double  Time::s_currentTime = 0.0;
-    double  Time::s_lastTime    = 0.0;
-    float   Time::s_deltaTime   = 0.0f;
+    double  GameTime::s_currentTime = 0.0;
+    double  GameTime::s_lastTime    = 0.0;
+    float   GameTime::s_deltaTime   = 0.0f;
 
-    Time::Time(double currentTime)
+    GameTime::GameTime(double currentTime)
     {        
         updateTime(currentTime);
     }
 
-    void Time::updateTime(double currentTime) 
+    void GameTime::updateTime(double currentTime) 
     {
         s_lastTime = s_currentTime;
         s_currentTime = currentTime;

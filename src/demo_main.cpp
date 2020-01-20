@@ -49,7 +49,7 @@ int main()
     init();
 
     
-    utils::Time time(glfwGetTime());
+    utils::GameTime time(glfwGetTime());
     while (!glfwWindowShouldClose(window)) 
     {
         // Update delta time
