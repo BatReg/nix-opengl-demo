@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-core::Actor* actor;
+core::Actor actor{};
 
 void init()
 {
@@ -17,19 +17,18 @@ void init()
          0.00f,  0.50f, 0.0f,
          0.50f, -0.50f, 0.0f
     };
-    actor = new core::Actor(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
+    actor.setVertices(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
 }
 
 void tick()
 {
     std::cout << "-------- TICK: " << utils::GameTime::getDeltaTime() << " --------" << '\n';
-    actor->draw();
+    actor.draw();
 }
 
 void dispose()
 {
     std::cout << "-------- DISPOSE --------" << '\n';
-    delete actor;
 };
 
 void processKeyboardInput(GLFWwindow* window)

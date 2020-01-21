@@ -16,7 +16,11 @@ namespace core
 
         ~Actor();
 
+        void setVertices(float vertices[], unsigned int verticesSize, unsigned int verticesNumber);
         void draw();
+
+    private:
+        void dispose();
     };
 }
 

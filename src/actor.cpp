@@ -15,8 +15,22 @@ namespace core
 
     Actor::Actor(float vertices[], unsigned int verticesSize, unsigned int verticesNumber)
     {
-        m_vao = 0;
-        m_vbo = 0;
+        m_vao = DEFAULT_BUFFER_PTR;
+        m_vbo = DEFAULT_BUFFER_PTR;
+        m_vertices = 0;
+
+        setVertices(vertices, verticesSize, verticesNumber);
+    }
+
+    Actor::~Actor()
+    {
+        dispose();
+    }
+
+    void Actor::setVertices(float vertices[], unsigned verticesSize, unsigned verticesNumber)
+    {
+        dispose();
+
         m_vertices = verticesNumber;
 
         glGenVertexArrays(1, &m_vao);
@@ -34,13 +48,6 @@ namespace core
         glBindBuffer(GL_ARRAY_BUFFER, DEFAULT_BUFFER_PTR);
     }
 
-    Actor::~Actor()
-    {
-        glDeleteVertexArrays(1, &m_vao);
-        glDeleteBuffers(1, &m_vbo);
-
-        m_vao = m_vbo = DEFAULT_BUFFER_PTR;
-    }
 
     void Actor::draw()
     {
@@ -48,4 +55,14 @@ namespace core
         glDrawArrays(GL_TRIANGLES, 0, m_vertices);
         glBindVertexArray(DEFAULT_BUFFER_PTR);
     }
+
+    void Actor::dispose()
+    {
+        glDeleteVertexArrays(1, &m_vao);
+        glDeleteBuffers(1, &m_vbo);
+
+        m_vao = m_vbo = DEFAULT_BUFFER_PTR;
+        m_vertices = 0;
+    }
+
 }
