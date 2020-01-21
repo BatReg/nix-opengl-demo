@@ -8,8 +8,8 @@ namespace core
 
     Actor::Actor()
     {
-        m_vao = DEFAULT_BUFFER_PTR;
-        m_vbo = DEFAULT_BUFFER_PTR;
+        m_vao       = DEFAULT_BUFFER_PTR;
+        m_vbo       = DEFAULT_BUFFER_PTR;
         m_triangles = 0;
     }
 

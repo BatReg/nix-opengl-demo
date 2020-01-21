@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-float           vertices[]
+float vertices[]
 {
     -0.50f, -0.50f, 0.0f,
     -0.50f,  0.50f, 0.0f,
