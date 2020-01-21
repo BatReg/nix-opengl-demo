@@ -6,31 +6,30 @@
 
 #include <iostream>
 
-float vertices[]
-{
-    -0.50f, -0.50f, 0.0f,
-    -0.50f,  0.50f, 0.0f,
-    -0.25f,  0.50f, 0.0f
-};
-
-core::Actor actor;
+core::Actor* actor;
 
 void init()
 {
     std::cout << "-------- INIT --------" << '\n';
-    actor = core::Actor(vertices, sizeof(vertices), sizeof(vertices) / 3);
+    float vertices[]
+    {
+        -0.50f, -0.50f, 0.0f,
+         0.00f,  0.50f, 0.0f,
+         0.50f, -0.50f, 0.0f
+    };
+    actor = new core::Actor(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
 }
 
 void tick()
 {
     std::cout << "-------- TICK: " << utils::GameTime::getDeltaTime() << " --------" << '\n';
-    actor.draw();
+    actor->draw();
 }
 
 void dispose()
 {
     std::cout << "-------- DISPOSE --------" << '\n';
-    actor.dispose();
+    delete actor;
 };
 
 void processKeyboardInput(GLFWwindow* window)

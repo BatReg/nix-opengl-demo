@@ -75,8 +75,8 @@
     <LibraryPath>D:\Education\OpenGL\third_parties\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Education\OpenGL\third_parties\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Education\OpenGL\third_parties\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Projects\OpenGL\third_parties\includes;D:\Education\OpenGL\third_parties\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Projects\OpenGL\third_parties\libs;D:\Education\OpenGL\third_parties\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -135,14 +135,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\actor.cpp" />
     <ClCompile Include="src\demo.cpp" />
     <ClCompile Include="src\demo_main.cpp" />
+    <ClCompile Include="src\game_time.cpp" />
     <ClCompile Include="src\third_party\glad.c" />
-    <ClCompile Include="src\time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\actor.h" />
+    <ClInclude Include="src\game_time.h" />
     <ClInclude Include="src\settings.h" />
-    <ClInclude Include="src\time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

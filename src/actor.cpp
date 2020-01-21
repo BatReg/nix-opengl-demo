@@ -10,14 +10,14 @@ namespace core
     {
         m_vao       = DEFAULT_BUFFER_PTR;
         m_vbo       = DEFAULT_BUFFER_PTR;
-        m_triangles = 0;
+        m_vertices = 0;
     }
 
-    Actor::Actor(float vertices[], unsigned int verticesSize, unsigned int triangles)
+    Actor::Actor(float vertices[], unsigned int verticesSize, unsigned int verticesNumber)
     {
         m_vao = 0;
         m_vbo = 0;
-        m_triangles = triangles;
+        m_vertices = verticesNumber;
 
         glGenVertexArrays(1, &m_vao);
         glGenBuffers(1, &m_vbo);
@@ -30,27 +30,22 @@ namespace core
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void*>(0));
         glEnableVertexAttribArray(0);
 
-        glBindVertexArray(DEFAULT_BUFFER_PTR);
-        glBindBuffer(GL_ARRAY_BUFFER, DEFAULT_BUFFER_PTR);
+        glBindVertexArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 
     Actor::~Actor()
-    {
-        dispose();
-    }
-
-    void Actor::draw()
-    {
-        glBindVertexArray(m_vao);
-        glDrawArrays(GL_TRIANGLES, 0, m_triangles);
-        glBindVertexArray(DEFAULT_BUFFER_PTR);
-    }
-
-    void Actor::dispose()
     {
         glDeleteVertexArrays(1, &m_vao);
         glDeleteBuffers(1, &m_vbo);
 
         m_vao = m_vbo = DEFAULT_BUFFER_PTR;
+    }
+
+    void Actor::draw()
+    {
+        glBindVertexArray(m_vao);
+        glDrawArrays(GL_TRIANGLES, 0, m_vertices);
+        glBindVertexArray(DEFAULT_BUFFER_PTR);
     }
 }
