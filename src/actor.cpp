@@ -10,7 +10,7 @@ namespace core
     {
         m_vao       = DEFAULT_BUFFER_PTR;
         m_vbo       = DEFAULT_BUFFER_PTR;
-        m_vertices = 0;
+        m_vertices  = 0;
     }
 
     Actor::Actor(float vertices[], unsigned int verticesSize, unsigned int verticesNumber)
@@ -30,8 +30,8 @@ namespace core
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void*>(0));
         glEnableVertexAttribArray(0);
 
-        glBindVertexArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindVertexArray(DEFAULT_BUFFER_PTR);
+        glBindBuffer(GL_ARRAY_BUFFER, DEFAULT_BUFFER_PTR);
     }
 
     Actor::~Actor()
