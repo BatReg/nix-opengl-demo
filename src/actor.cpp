@@ -25,6 +25,7 @@ namespace core
         if(m_mesh == nullptr)
         {
             std::cout << "ERROR: Mesh has not been set.\n";
+            return;
         }
 
         m_mesh->draw();
