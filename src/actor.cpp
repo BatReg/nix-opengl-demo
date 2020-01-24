@@ -1,68 +1,32 @@
 #include "actor.h"
 
 #include <glad/glad.h>
+#include <iostream>
 
 namespace core
 {
-    inline constexpr unsigned int DEFAULT_BUFFER_PTR = 0;
-
     Actor::Actor()
     {
-        m_vao       = DEFAULT_BUFFER_PTR;
-        m_vbo       = DEFAULT_BUFFER_PTR;
-        m_vertices  = 0;
+        m_mesh = nullptr;
     }
 
-    Actor::Actor(float vertices[], unsigned int verticesSize, unsigned int verticesNumber)
+    Actor::Actor(Mesh* mesh)
     {
-        m_vao = DEFAULT_BUFFER_PTR;
-        m_vbo = DEFAULT_BUFFER_PTR;
-        m_vertices = 0;
-
-        setVertices(vertices, verticesSize, verticesNumber);
+        m_mesh = mesh;
     }
 
-    Actor::~Actor()
+    void Actor::setMesh(Mesh* mesh)
     {
-        dispose();
+        m_mesh = mesh;
     }
-
-    void Actor::setVertices(float vertices[], unsigned verticesSize, unsigned verticesNumber)
-    {
-        dispose();
-
-        m_vertices = verticesNumber;
-
-        glGenVertexArrays(1, &m_vao);
-        glGenBuffers(1, &m_vbo);
-
-        glBindVertexArray(m_vao);
-
-        glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-        glBufferData(GL_ARRAY_BUFFER, verticesSize, vertices, GL_STATIC_DRAW);
-
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void*>(0));
-        glEnableVertexAttribArray(0);
-
-        glBindVertexArray(DEFAULT_BUFFER_PTR);
-        glBindBuffer(GL_ARRAY_BUFFER, DEFAULT_BUFFER_PTR);
-    }
-
 
     void Actor::draw()
     {
-        glBindVertexArray(m_vao);
-        glDrawArrays(GL_TRIANGLES, 0, m_vertices);
-        glBindVertexArray(DEFAULT_BUFFER_PTR);
+        if(m_mesh == nullptr)
+        {
+            std::cout << "ERROR: Mesh has not been set.\n";
+        }
+
+        m_mesh->draw();
     }
-
-    void Actor::dispose()
-    {
-        glDeleteVertexArrays(1, &m_vao);
-        glDeleteBuffers(1, &m_vbo);
-
-        m_vao = m_vbo = DEFAULT_BUFFER_PTR;
-        m_vertices = 0;
-    }
-
 }

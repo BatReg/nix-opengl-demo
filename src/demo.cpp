@@ -7,6 +7,7 @@
 #include <iostream>
 
 core::Actor actor{};
+core::Mesh mesh{};
 
 void init()
 {
@@ -17,7 +18,8 @@ void init()
          0.00f,  0.50f, 0.0f,
          0.50f, -0.50f, 0.0f
     };
-    actor.setVertices(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
+    mesh.setVertices(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
+    actor.setMesh(&mesh);
 }
 
 void tick()

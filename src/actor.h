@@ -1,26 +1,21 @@
 #ifndef ACTOR
 #define ACTOR
 
+#include "mesh.h"
+
 namespace core
 {
     class Actor
     {
     private:
-        unsigned int m_vao;
-        unsigned int m_vbo;
-        unsigned int m_vertices;
+        Mesh* m_mesh;
 
     public:
         Actor();
-        Actor(float vertices[], unsigned int verticesSize, unsigned int verticesNumber);
+        Actor(Mesh* mesh);
 
-        ~Actor();
-
-        void setVertices(float vertices[], unsigned int verticesSize, unsigned int verticesNumber);
+        void setMesh(Mesh* mesh);
         void draw();
-
-    private:
-        void dispose();
     };
 }
 
