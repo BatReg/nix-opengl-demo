@@ -8,11 +8,14 @@
 
 namespace core
 {
+    const glm::vec4 DEFAULT_COLOR = glm::vec4{ 1.0,1.0,1.0,1.0 };
+
     class Shader
     {
+    private:
+        unsigned int m_ID;
+        glm::vec4 m_color;
     public:
-        unsigned int ID;
-
         Shader();
 
         Shader(const char* vertexPath, const char* fragmentPath);
@@ -22,6 +25,10 @@ namespace core
         void activate();
 
         void deActivate();
+
+        unsigned int getID();
+
+        void setColor(glm::vec4 color);
 
         void setBool(const std::string& name, bool value) const;
 

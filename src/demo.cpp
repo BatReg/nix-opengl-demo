@@ -1,5 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 #include "game_time.h"
 #include "actor.h"
@@ -22,6 +23,7 @@ void init()
          0.50f, -0.50f, 0.0f
     };
     shader = new core::Shader("src/shaders/vertex.vert", "src/shaders/fragment.frag");
+    shader->setColor(glm::vec4{ 0.98, 0.55, 0.0, 1.0 });
     mesh.setVertices(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
     actor.setMesh(&mesh);
     actor.setShader(shader);
