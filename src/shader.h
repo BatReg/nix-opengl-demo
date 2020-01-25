@@ -13,9 +13,15 @@ namespace core
     public:
         unsigned int ID;
 
+        Shader();
+
         Shader(const char* vertexPath, const char* fragmentPath);
 
-        void use();
+        ~Shader();
+
+        void activate();
+
+        void deActivate();
 
         void setBool(const std::string& name, bool value) const;
 

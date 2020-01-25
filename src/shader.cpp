@@ -3,11 +3,19 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <ostream>
 
 namespace core
 {
+    Shader::Shader()
+    {
+        ID = 0;
+    }
+
     Shader::Shader(const char* vertexPath, const char* fragmentPath)
     {
+        ID = 0;
+
         // 1. retrieve the vertex/fragment source code from filePath
         std::string vertexCode;
         std::string fragmentCode;
@@ -16,6 +24,11 @@ namespace core
 
         vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+        std::ofstream outf("sample.dat");
+
+        outf << "Lol" << std::endl;
+        outf.close();
 
         try
         {
@@ -31,7 +44,7 @@ namespace core
         }
         catch (const std::ifstream::failure & e)
         {
-            std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ" << std::endl;
+            std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ::" << std::endl;
         }
 
         // 2. compile shaders
@@ -60,9 +73,21 @@ namespace core
         glDeleteShader(fragment);
     }
 
-    void Shader::use()
+    Shader::~Shader()
+    {
+        if (ID == 0) return;
+
+        glDeleteProgram(ID);
+    }
+
+    void Shader::activate()
     {
         glUseProgram(ID);
+    }
+
+    void Shader::deActivate()
+    {
+        glUseProgram(0);
     }
 
     void Shader::setBool(const std::string& name, bool value) const

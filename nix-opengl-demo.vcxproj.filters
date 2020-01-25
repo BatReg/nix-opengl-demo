@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Third Party">
       <UniqueIdentifier>{259b824c-e66c-45d4-9166-93a621ed2c96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{812472d2-360b-4aa0-b434-2778e12e0d34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\demo_main.cpp">
@@ -33,6 +36,12 @@
     <ClCompile Include="src\game_time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\settings.h">
@@ -44,5 +53,19 @@
     <ClInclude Include="src\actor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\fragment.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="src\vertex.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

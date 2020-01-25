@@ -1,6 +1,5 @@
 #include "actor.h"
 
-#include <glad/glad.h>
 #include <iostream>
 
 namespace core
@@ -10,14 +9,20 @@ namespace core
         m_mesh = nullptr;
     }
 
-    Actor::Actor(Mesh* mesh)
+    Actor::Actor(Mesh* mesh, Shader* shader)
     {
         m_mesh = mesh;
+        m_shader = shader;
     }
 
     void Actor::setMesh(Mesh* mesh)
     {
         m_mesh = mesh;
+    }
+
+    void Actor::setShader(Shader* shader)
+    {
+        m_shader = shader;
     }
 
     void Actor::draw()
@@ -28,6 +33,13 @@ namespace core
             return;
         }
 
+        if(m_shader == nullptr)
+        {
+            std::cout << "ERROR: Shader has not been set.\n";
+        }
+
+        m_shader->activate();
         m_mesh->draw();
+        m_shader->deActivate();
     }
 }

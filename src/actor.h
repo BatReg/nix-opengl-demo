@@ -2,6 +2,7 @@
 #define ACTOR
 
 #include "mesh.h"
+#include "shader.h"
 
 namespace core
 {
@@ -9,12 +10,14 @@ namespace core
     {
     private:
         Mesh* m_mesh;
+        Shader* m_shader;
 
     public:
         Actor();
-        Actor(Mesh* mesh);
+        Actor(Mesh* mesh, Shader* shader);
 
         void setMesh(Mesh* mesh);
+        void setShader(Shader* shader);
         void draw();
     };
 }
