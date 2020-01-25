@@ -6,14 +6,14 @@ namespace core
 {
     Actor::Actor()
     {
-        m_mesh = nullptr;
-        m_shader = nullptr;
+        m_mesh      = nullptr;
+        m_shader    = nullptr;
     }
 
     Actor::Actor(Mesh* mesh, Shader* shader)
     {
-        m_mesh = mesh;
-        m_shader = shader;
+        m_mesh      = mesh;
+        m_shader    = shader;
     }
 
     void Actor::setMesh(Mesh* mesh)
@@ -41,7 +41,9 @@ namespace core
         }
 
         m_shader->activate();
+
         m_mesh->draw();
+
         m_shader->deActivate();
     }
 }

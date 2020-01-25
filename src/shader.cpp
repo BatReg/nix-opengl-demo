@@ -9,13 +9,13 @@ namespace core
 {
     Shader::Shader()
     {
-        m_ID = 0;
+        m_ID    = 0;
         m_color = glm::vec4{DEFAULT_COLOR};
     }
 
     Shader::Shader(const char* vertexPath, const char* fragmentPath)
     {
-        m_ID = 0;
+        m_ID    = 0;
         m_color = glm::vec4{ DEFAULT_COLOR };
 
         // 1. retrieve the vertex/fragment source code from filePath
@@ -26,11 +26,6 @@ namespace core
 
         vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-
-        std::ofstream outf("sample.dat");
-
-        outf << "Lol" << std::endl;
-        outf.close();
 
         try
         {

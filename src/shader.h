@@ -13,8 +13,8 @@ namespace core
     class Shader
     {
     private:
-        unsigned int m_ID;
-        glm::vec4 m_color;
+        unsigned int    m_ID;
+        glm::vec4       m_color;
     public:
         Shader();
 

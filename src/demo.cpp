@@ -9,9 +9,9 @@
 
 #include <iostream>
 
-core::Actor actor{};
-core::Mesh mesh{};
-core::Shader* shader{};
+core::Actor     actor{};
+core::Mesh      mesh{};
+core::Shader*   shader{};
 
 void init()
 {
