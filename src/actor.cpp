@@ -7,6 +7,7 @@ namespace core
     Actor::Actor()
     {
         m_mesh = nullptr;
+        m_shader = nullptr;
     }
 
     Actor::Actor(Mesh* mesh, Shader* shader)
@@ -36,6 +37,7 @@ namespace core
         if(m_shader == nullptr)
         {
             std::cout << "ERROR: Shader has not been set.\n";
+            return;
         }
 
         m_shader->activate();
