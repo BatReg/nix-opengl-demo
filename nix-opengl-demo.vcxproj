@@ -142,6 +142,7 @@
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\third_party\glad.c" />
+    <ClCompile Include="src\transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\actor.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="src\mesh.h" />
     <ClInclude Include="src\settings.h" />
     <ClInclude Include="src\shader.h" />
+    <ClInclude Include="src\transform.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\fragment.frag" />

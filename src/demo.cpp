@@ -27,6 +27,9 @@ void init()
     mesh.setVertices(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
     actor.setMesh(&mesh);
     actor.setShader(shader);
+    actor.setPosition(glm::vec3{ 0.75f, -0.75f, 0.0f });
+    actor.setScale(glm::vec3{ 0.5f, 0.5f, 0.5f });
+    actor.setRotation(glm::vec3{ 0.0f, 0.0f, 180.0f });
 }
 
 void tick()
