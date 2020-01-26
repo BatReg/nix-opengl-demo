@@ -23,9 +23,13 @@ namespace core
         void setMesh(Mesh* mesh);
         void setShader(Shader* shader);
 
+        glm::vec3 getPosition();
+        glm::vec3 getRotation();
+        glm::vec3 getScale();
+
         void setPosition(glm::vec3 position);
         void setRotation(glm::vec3 rotation);
-        void setScale(glm::vec3 scale);
+        void setScale(glm::vec3 scale);        
 
         void draw();
     };

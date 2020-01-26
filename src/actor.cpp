@@ -31,6 +31,21 @@ namespace core
         m_shader = shader;
     }
 
+    glm::vec3 Actor::getPosition()
+    {
+        return m_transform.pos;
+    }
+
+    glm::vec3 Actor::getRotation()
+    {
+        return m_transform.rot;
+    }
+
+    glm::vec3 Actor::getScale()
+    {
+        return m_transform.scale;
+    }
+
     void Actor::setPosition(glm::vec3 position)
     {
         m_transform.pos = position;
