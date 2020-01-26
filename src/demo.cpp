@@ -8,7 +8,7 @@
 #include "shader.h"
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 core::Actor     actor{};
 core::Mesh      mesh{};
