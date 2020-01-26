@@ -23,9 +23,9 @@ namespace core
         glm::mat4 result = glm::mat4{ 1.0f };
 
         result = glm::translate(result, pos);
-        result = glm::rotate(result, glm::radians(rot.x), glm::vec3{ 1.0f, 0.0f, 0.0f });
-        result = glm::rotate(result, glm::radians(rot.y), glm::vec3{ 0.0f, 1.0f, 0.0f });
-        result = glm::rotate(result, glm::radians(rot.z), glm::vec3{ 0.0f, 0.0f, 1.0f });
+        result = glm::rotate(result, glm::radians(rot.x), AXIS_X);
+        result = glm::rotate(result, glm::radians(rot.y), AXIS_Y);
+        result = glm::rotate(result, glm::radians(rot.z), AXIS_Z);
         result = glm::scale(result, scale);
 
         return result;

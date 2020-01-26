@@ -5,6 +5,10 @@
 
 namespace core
 {
+    inline constexpr glm::vec3 AXIS_X = glm::vec3{ 1.0f, 0.0f, 0.0f };
+    inline constexpr glm::vec3 AXIS_Y = glm::vec3{ 0.0f, 1.0f, 0.0f };
+    inline constexpr glm::vec3 AXIS_Z = glm::vec3{ 0.0f, 0.0f, 1.0f };
+
     struct Transform
     {
     public:
