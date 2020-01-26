@@ -23,9 +23,6 @@ namespace core
 
     void Actor::setMesh(Mesh* mesh)
     {
-        std::cout << "TRANSFORM::X:" << m_transform.pos.x << "::Y:" << m_transform.pos.y << "::Z:" << m_transform.pos.z << std::endl;
-        std::cout << "ROTATION::X:" << m_transform.rot.x << "::Y:" << m_transform.rot.y << "::Z:" << m_transform.rot.z << std::endl;
-        std::cout << "SCALE::X:" << m_transform.scale.x << "::Y:" << m_transform.scale.y << "::Z:" << m_transform.scale.z << std::endl;
         m_mesh = mesh;
     }
 
