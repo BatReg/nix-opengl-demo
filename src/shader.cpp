@@ -7,17 +7,12 @@
 
 namespace core
 {
-    Shader::Shader()
+    Shader::Shader() : m_ID{}, m_color{ DEFAULT_COLOR }
     {
-        m_ID    = 0;
-        m_color = glm::vec4{DEFAULT_COLOR};
     }
 
-    Shader::Shader(const char* vertexPath, const char* fragmentPath)
+    Shader::Shader(const char* vertexPath, const char* fragmentPath) : Shader()
     {
-        m_ID    = 0;
-        m_color = glm::vec4{ DEFAULT_COLOR };
-
         // 1. retrieve the vertex/fragment source code from filePath
         std::string vertexCode;
         std::string fragmentCode;

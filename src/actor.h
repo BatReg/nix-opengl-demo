@@ -10,9 +10,9 @@ namespace core
     class Actor
     {
     private:
-        Mesh*   m_mesh{};
-        Shader* m_shader{};
-        Transform m_transform{};
+        Mesh*       m_mesh{};
+        Shader*     m_shader{};
+        Transform   m_transform{};
 
     public:
         Actor();

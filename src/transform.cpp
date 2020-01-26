@@ -4,18 +4,12 @@
 
 namespace core
 {
-    Transform::Transform()
+    Transform::Transform() : pos{ 0.0f }, rot{ 0.0f }, scale{ 1.0f }
     {
-        pos     = glm::vec3{ 0.0f };
-        rot     = glm::vec3{ 0.0f };
-        scale   = glm::vec3{ 1.0f };
     }
 
-    Transform::Transform(glm::vec3 position, glm::vec3 rotation, glm::vec3 scaling)
+    Transform::Transform(glm::vec3 position, glm::vec3 rotation, glm::vec3 scaling): pos{position}, rot{rotation}, scale{scaling}
     {
-        pos     = glm::vec3{ position };
-        rot     = glm::vec3{ rotation };
-        scale   = glm::vec3{ scaling };
     }
 
     glm::mat4 Transform::getTransformMatrix()

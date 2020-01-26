@@ -6,14 +6,10 @@ namespace core
 {
     Actor::Actor()
     {
-        m_mesh      = nullptr;
-        m_shader    = nullptr;        
     }
 
-    Actor::Actor(Mesh* mesh, Shader* shader)
+    Actor::Actor(Mesh* mesh, Shader* shader): m_mesh{mesh}, m_shader{shader}
     {
-        m_mesh      = mesh;
-        m_shader    = shader;
     }
 
     Transform Actor::getTransform()

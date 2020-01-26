@@ -4,19 +4,12 @@
 
 namespace core
 {
-    Mesh::Mesh()
+    Mesh::Mesh() : m_vao{ NULL_BUFFER_IDX }, m_vbo{ NULL_BUFFER_IDX }, m_vertices{ 0 }
     {
-        m_vao       = NULL_BUFFER_IDX;
-        m_vbo       = NULL_BUFFER_IDX;
-        m_vertices  = 0;
     }
 
-    Mesh::Mesh(float vertices[], unsigned verticesSize, unsigned verticesNumber)
+    Mesh::Mesh(float vertices[], unsigned verticesSize, unsigned verticesNumber): Mesh()
     {
-        m_vao       = NULL_BUFFER_IDX;
-        m_vbo       = NULL_BUFFER_IDX;
-        m_vertices  = 0;
-
         setVertices(vertices, verticesSize, verticesNumber);
     }
 
