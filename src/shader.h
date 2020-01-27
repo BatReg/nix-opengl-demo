@@ -8,13 +8,10 @@
 
 namespace core
 {
-    const glm::vec4 DEFAULT_COLOR = glm::vec4{ 1.0,1.0,1.0,1.0 };
-
     class Shader
     {
     private:
-        unsigned int    m_ID;
-        glm::vec4       m_color;
+        unsigned int m_ID;
     public:
         Shader();
 
@@ -27,8 +24,6 @@ namespace core
         void deActivate();
 
         unsigned int getID();
-
-        void setColor(glm::vec4 color);
 
         void setBool(const std::string& name, bool value) const;
 

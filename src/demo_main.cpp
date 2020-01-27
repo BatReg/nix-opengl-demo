@@ -11,7 +11,7 @@ void tick();
 void dispose();
 void processKeyboardInput(GLFWwindow* window);
 
-static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
+static void framebufferSizeCallback(GLFWwindow*, int width, int height);
 
 int main()
 {
@@ -80,7 +80,7 @@ int main()
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
-void framebufferSizeCallback(GLFWwindow* window, int width, int height) 
+void framebufferSizeCallback(GLFWwindow*, int width, int height) 
 {
     glViewport(0, 0, width, height);
 }

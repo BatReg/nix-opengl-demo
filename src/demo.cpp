@@ -10,14 +10,15 @@
 #include <iostream>
 #include <cmath>
 
+constexpr glm::vec4 GREEN_COLOR{ 0.65, 0.84, 0.65, 1.0 };
+constexpr glm::vec4 ORANGE_COLOR{ 0.98, 0.55, 0.0, 1.0 };
+
 core::Actor     actor{};
 core::Mesh      mesh{};
 core::Shader*   shader{};
 
 core::Actor     actor2{};
 
-glm::vec4       greenColor{ 0.65, 0.84, 0.65, 1.0 };
-glm::vec4       orangeColor{ 0.98, 0.55, 0.0, 1.0 };
 
 void init()
 {
@@ -38,23 +39,23 @@ void init()
     actor.setMesh(&mesh);
     actor.setShader(shader);
     actor.setPosition(glm::vec3{ 0.5f, -0.5f, 0.0f });
+    actor.setColor(ORANGE_COLOR);
 
     actor2.setMesh(&mesh);
     actor2.setShader(shader);
     actor2.setPosition(glm::vec3{ -0.5f, 0.5f, 0.0f });
+    actor2.setColor(GREEN_COLOR);
 }
 
 void tick()
 {
     std::cout << "-------- TICK: " << utils::GameTime::getDeltaTime() << " --------" << '\n';
 
-    shader->setColor(orangeColor);
     glm::vec3 actorRotation = actor.getRotation();
     actorRotation.z += utils::GameTime::getDeltaTime() * 75.0f;
     actor.setRotation(actorRotation);
     actor.draw();
 
-    shader->setColor(greenColor);
     float scale = static_cast<float>(sin(utils::GameTime::getCurrentTime() * 3.0f) + 1.0f) / 2.0f;
     actor2.setScale(glm::vec3{ scale, scale, 0.5f });
     actor2.draw();

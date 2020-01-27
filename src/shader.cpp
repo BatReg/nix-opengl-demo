@@ -7,7 +7,7 @@
 
 namespace core
 {
-    Shader::Shader() : m_ID{}, m_color{ DEFAULT_COLOR }
+    Shader::Shader() : m_ID{}
     {
     }
 
@@ -34,7 +34,7 @@ namespace core
             vertexCode = vShaderStream.str();
             fragmentCode = fShaderStream.str();
         }
-        catch (const std::ifstream::failure & e)
+        catch (const std::ifstream::failure&)
         {
             std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ::" << std::endl;
         }
@@ -75,7 +75,6 @@ namespace core
     void Shader::activate()
     {
         glUseProgram(m_ID);
-        setVec4("color", m_color);
     }
 
     void Shader::deActivate()
@@ -86,11 +85,6 @@ namespace core
     unsigned int Shader::getID()
     {
         return m_ID;
-    }
-
-    void Shader::setColor(glm::vec4 color)
-    {
-        m_color = color;
     }
 
     void Shader::setBool(const std::string& name, bool value) const
