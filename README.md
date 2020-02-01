@@ -1,6 +1,6 @@
 # OpenGL demo for N-iX
 
-Small demo developed for a talk about an introduction into OpenGL API for developers.<br/>
+Small demo developed for a talk about an introduction to OpenGL API for developers.<br/>
 Target OS: **Windows**.<br/>
 Tartget architecture: **x64**.<br/>
 Compiler: **MSVC**.
