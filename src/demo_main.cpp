@@ -24,8 +24,8 @@ int main()
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(settings::SCREEN_WIDTH, settings::SCREEN_HEIGHT, "N-iX OpenGL", NULL, NULL);
-    if (window == NULL)
+    GLFWwindow* window = glfwCreateWindow(settings::SCREEN_WIDTH, settings::SCREEN_HEIGHT, "N-iX OpenGL", nullptr, nullptr);
+    if (window == nullptr)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -42,12 +42,7 @@ int main()
         return -1;
     }
 
-    // configure global opengl state
-    // -----------------------------
-    glEnable(GL_DEPTH_TEST);
-
     init();
-
     
     utils::GameTime time(glfwGetTime());
     while (!glfwWindowShouldClose(window)) 

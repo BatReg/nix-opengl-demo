@@ -1,6 +1,8 @@
 #ifndef MESH
 #define MESH
 
+#include <vector>
+
 namespace core
 {
     inline constexpr unsigned int NULL_BUFFER_IDX = 0;
@@ -14,11 +16,10 @@ namespace core
 
     public:
         Mesh();
-        Mesh(float vertices[], unsigned int verticesSize, unsigned int verticesNumber);
 
         ~Mesh();
 
-        void setVertices(float vertices[], unsigned int verticesSize, unsigned int verticesNumber);
+        void setVertices(std::vector<float> vertices);
         void draw();
 
     private:

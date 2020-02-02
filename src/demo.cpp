@@ -8,7 +8,7 @@
 #include "shader.h"
 
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 constexpr glm::vec4 GREEN_COLOR{ 0.65, 0.84, 0.65, 1.0 };
 constexpr glm::vec4 ORANGE_COLOR{ 0.98, 0.55, 0.0, 1.0 };
@@ -19,22 +19,21 @@ core::Shader*   shader{};
 
 core::Actor     actor2{};
 
-
 void init()
 {
     std::cout << "-------- INIT --------" << '\n';
-    float vertices[]
+    std::vector<float> vertices
     {
-        -0.5f, -0.5f, -0.5f,
-         0.5f, -0.5f, -0.5f,
-         0.5f,  0.5f, -0.5f,
-         0.5f,  0.5f, -0.5f,
-        -0.5f,  0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f
+        -0.5f, -0.5f, 0.0f,
+        -0.5f,  0.5f, 0.0f,
+         0.5f,  0.5f, 0.0f,
+         0.5f,  0.5f, 0.0f,
+         0.5f, -0.5f, 0.0f,
+        -0.5f, -0.5f, 0.0f
     };
     shader = new core::Shader("src/shaders/vertex.vert", "src/shaders/fragment.frag");
 
-    mesh.setVertices(vertices, sizeof(vertices), sizeof(vertices) / sizeof(vertices[0]) / 3);
+    mesh.setVertices(vertices);
 
     actor.setMesh(&mesh);
     actor.setShader(shader);
@@ -74,4 +73,28 @@ void processKeyboardInput(GLFWwindow* window)
     {
         glfwSetWindowShouldClose(window, true);
     }
+
+    std::vector<float> vertices
+    {
+        -0.5f, -0.5f, 0.0f,
+        -0.5f,  0.5f, 0.0f,
+         0.5f,  0.5f, 0.0f,
+         0.5f,  0.5f, 0.0f,
+         0.5f, -0.5f, 0.0f,
+        -0.5f, -0.5f, 0.0f
+    };
+
+    unsigned int VBO;
+    unsigned int VAO;
+
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void*>(0));
+    glEnableVertexAttribArray(0);
 };

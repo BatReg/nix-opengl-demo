@@ -8,21 +8,16 @@ namespace core
     {
     }
 
-    Mesh::Mesh(float vertices[], unsigned verticesSize, unsigned verticesNumber): Mesh()
-    {
-        setVertices(vertices, verticesSize, verticesNumber);
-    }
-
     Mesh::~Mesh()
     {
         dispose();
     }
 
-    void Mesh::setVertices(float vertices[], unsigned verticesSize, unsigned verticesNumber)
+    void Mesh::setVertices(std::vector<float> vertices)
     {
         dispose();
 
-        m_vertices = verticesNumber;
+        m_vertices = vertices.size() / 3;
 
         glGenVertexArrays(1, &m_vao);
         glGenBuffers(1, &m_vbo);
@@ -30,7 +25,7 @@ namespace core
         glBindVertexArray(m_vao);
 
         glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-        glBufferData(GL_ARRAY_BUFFER, verticesSize, vertices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
 
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void*>(0));
         glEnableVertexAttribArray(0);
