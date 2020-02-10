@@ -6,6 +6,8 @@ Tartget architecture: **x64**.<br/>
 Compiler: **MSVC**.
 
 ## Dependencies
+You should add next libraries  to your "include" and "lib" directories.
+Also, you should add them to the linker input.
 - OpenGL
 - [GLFW](https://www.glfw.org/download.html)
 - [GLAD](https://glad.dav1d.de/)
